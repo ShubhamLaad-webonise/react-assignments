@@ -3,15 +3,16 @@ import Header from './header';
 
 const App = React.createClass({
    render () {
-     console.log (this)
-     const now = new Date();
+     const topicList = ['html', 'react', 'css'];
       return (
         <div>
           <Header />
           <h1 className="text-center" >
-            Hello Shubham Laad!
+            Travers the array
           </h1>
-          <p>Todays time: {now.toTimeString()}</p>
+          <ul>
+            {topicList.map(topic => (<li>{topic}</li>)) }
+          </ul>
         </div>
       )
    }
