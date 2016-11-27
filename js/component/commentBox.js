@@ -2,6 +2,11 @@ import React from 'react';
 import Comment from './comment';
 
 const CommentBox = React.createClass({
+  getInitialState () {
+    return ({
+      showComments : false
+    })
+  },
   _getComments() {
     const commentList = [
       { id: 1, author: 'Clu', body: 'Just say no to love!' },
@@ -25,16 +30,29 @@ const CommentBox = React.createClass({
       return '${commentCount} comments';
     }
   },
-
+_handleClick(){
+  this.setState({
+    showComments : !this.state.showComments
+  })
+},
   render () {
     const comments = this._getComments();
+    var commentNodes;
+    let buttonText = 'Show Comments';
+    if(this.state.showComments){
+      buttonText = 'Hide Comments';
+    }
+    if(this.state.showComments) {
+      commentNodes = <ul className="commentList">{comments}</ul>;
+    }
     return (
         <div className="container">
-          <h2>Join discussion</h2>
-          <h3> {this._getCommnetTitle(comments.length)}</h3>
-          <ul className="commentList">
-            {comments}
-          </ul>
+          <h2>Event handling</h2>
+          <div className="clearfix">
+            <h3 className="pull-left"> {this._getCommnetTitle(comments.length)}</h3>
+            <a className="pull-right commentButton" onClick={this._handleClick}>{buttonText}</a>
+          </div>
+          {commentNodes}
         </div>
     );
   }
