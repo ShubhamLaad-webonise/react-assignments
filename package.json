@@ -8,14 +8,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/abhinavbahiya/React-Setup"
+    "url": "https://github.com/ShubhamLaad-webonise/react-assignments"
   },
-  "author": "Abhinav Bahiya",
+  "author": "Shubham Laad",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/abhinavbahiya/React-Setup/issues"
-  },
-  "homepage": "https://github.com/abhinavbahiya/React-Setup#readme",
+  "homepage": "https://github.com/ShubhamLaad-webonise/react-assignments#readme",
   "dependencies": {
     "babel": "^6.5.2",
     "babel-cli": "^6.11.4",

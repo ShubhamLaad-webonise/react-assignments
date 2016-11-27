@@ -1,7 +1,7 @@
 import React from 'react';
-import Header from './js/component/header';
-import RedBlock from './js/component/redBlock';
-import BlueBlock from './js/component/BlueBlock';
+import Header from './header';
+import RedBlock from './redBlock';
+import BlueBlock from './BlueBlock';
 
 const App = React.createClass({
   getDefaultProps () {
