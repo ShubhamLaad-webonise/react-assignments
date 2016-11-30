@@ -1,17 +1,18 @@
 import React from 'react';
 
-const Comment = React.createClass({
+const CommentForm = React.createClass({
   render(){
     return(
-      <form>
-        <div class="form-group">
+      <form className="commentForm">
+        <div className="form-group">
           <label for="usr">Name:</label>
-          <input type="text" class="form-control" id="usr">
+          <input type="text" className="form-control" id="usr" />
         </div>
-        <div class="form-group">
+        <div className="form-group">
           <label for="comment">Comment:</label>
-          <textarea class="form-control" rows="5" id="comment"></textarea>
+          <textarea className="form-control" rows="5" id="comment"></textarea>
         </div>
+        <button type="submit" className="btn btn-default">Submit</button>
       </form>
     )
   }

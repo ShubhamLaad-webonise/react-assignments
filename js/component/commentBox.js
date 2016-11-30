@@ -1,5 +1,6 @@
 import React from 'react';
 import Comment from './comment';
+import CommentForm from './commentForm';
 
 const CommentBox = React.createClass({
   getInitialState () {
@@ -47,7 +48,8 @@ _handleClick(){
     }
     return (
         <div className="container">
-          <h2>Event handling</h2>
+          <h2>Event handling with form</h2>
+          <CommentForm />
           <div className="clearfix">
             <h3 className="pull-left"> {this._getCommnetTitle(comments.length)}</h3>
             <a className="pull-right commentButton" onClick={this._handleClick}>{buttonText}</a>

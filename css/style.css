@@ -8,9 +8,6 @@ a,button{
   cursor: pointer;
   text-decoration: none;
 }
-.commentList{
-  background-color: yellow;
-}
 .commentList li{
   padding: 10px;
   margin-bottom: 20px;
@@ -21,8 +18,12 @@ a,button{
   border-bottom: 2px solid;
 }
 .commentButton{
-  background-color: orange;
   padding: 10px;
   width: 200px;
   text-align: center;
+  border: 1px solid;
 }
+.commentForm{
+  margin-bottom: 50px;
+}
+
