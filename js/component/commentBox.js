@@ -27,7 +27,7 @@ const CommentBox = React.createClass({
     } else if(commentCount === 1){
       return '1 comment';
     } else {
-      return '${commentCount} comments';
+      return commentCount + ' comments';
     }
   },
 _handleClick(){
