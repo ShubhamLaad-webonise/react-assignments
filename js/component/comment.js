@@ -1,6 +1,19 @@
 import React from 'react';
 
 const Comment = React.createClass({
+
+    propTypes: {
+      author: React.PropTypes.string,
+      body: React.PropTypes.string
+  },
+
+  getDefaultProps () {
+      return {
+        author: '',
+        body: ''
+      };
+  },
+
   render(){
     return(
       <li>
@@ -12,7 +25,7 @@ const Comment = React.createClass({
       </li>
     )
   }
-
+  
 });
 
 export default Comment;
