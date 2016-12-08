@@ -16,7 +16,9 @@ const CommentBox = React.createClass({
       return (<Comment
                author={comment.author}
                body={comment.body}
-               key={comment.id} />)
+               key={comment.key}
+               id={comment.key}
+               deleteComment={this._deleteComment}/>)
     });
   },
 
@@ -30,20 +32,30 @@ const CommentBox = React.createClass({
     }
   },
 
-_handleClick() {
-  this.setState({
-    showComments : !this.state.showComments
-  })
-},
+  _handleClick() {
+    if(this.state.commentList.length) {
+      this.setState({
+        showComments : !this.state.showComments
+      })
+    }
+  },
 
-_setValues (author, comment) {
-  let commentList = this.state.commentList;
-  let newId = commentList.length;
-  commentList.push({author: author, body: comment, id: newId});
-  this.setState({
-    commentList: commentList
-  })
-},
+  _setValues (author, comment) {
+    let commentList = this.state.commentList;
+    let newId = commentList.length;
+    commentList.push({author: author, body: comment, key: newId});
+    this.setState({
+      commentList: commentList
+    })
+  },
+
+  _deleteComment (key) {
+    let commentList = this.state.commentList;
+    commentList.splice(key, 1);
+    this.setState({
+      commentList: commentList
+    })
+  },
 
   render () {
     const comments = this._getComments();
