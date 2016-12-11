@@ -19,7 +19,6 @@ const Comment = React.createClass({
   },
 
   render(){
-    console.log(this);
     return(
       <li>
         <div className="clearfix commentHeader">
@@ -30,7 +29,7 @@ const Comment = React.createClass({
       </li>
     )
   }
-  
+
 
 
 

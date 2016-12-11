@@ -6,18 +6,18 @@ const CommentBox = React.createClass({
 
   getInitialState () {
     return ({
-      showComments : false,
+      showComments: false,
       commentList: []
     })
   },
 
   _getComments() {
-    return this.state.commentList.map((comment) => {
+    return this.state.commentList.map((comment, key) => {
       return (<Comment
                author={comment.author}
                body={comment.body}
-               id={comment.id}
-               key={comment.id}
+               id={key}
+               key={key}
                deleteComment={this._deleteComment}/>)
     });
   },
@@ -42,8 +42,7 @@ const CommentBox = React.createClass({
 
   _setValues (author, comment) {
     let commentList = this.state.commentList;
-    let newId = commentList.length;
-    commentList.push({author: author, body: comment, id: newId});
+    commentList.push({author: author, body: comment});
     this.setState({
       commentList: commentList
     })
@@ -70,7 +69,7 @@ const CommentBox = React.createClass({
     return (
         <div className="container">
           <h2>Event handling with form</h2>
-          <CommentForm setValues={this._setValues}/>
+          <CommentForm setValues={this._setValues} />
           <div className="clearfix">
             <h3 className="pull-left"> {this._getCommnetTitle(comments.length)}</h3>
             <a className="pull-right commentButton" onClick={this._handleClick}>{buttonText}</a>
