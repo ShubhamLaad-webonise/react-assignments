@@ -1,3 +1,4 @@
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var config = {
    entry: './js/main.js',
 
@@ -10,8 +11,7 @@ var config = {
       inline: true,
       port: 8080
    },
-
-   module: {
+    module: {
       loaders: [
          {
             test: /\.jsx?$/,
@@ -21,7 +21,11 @@ var config = {
             query: {
                presets: ['es2015', 'react']
             }
-         }
+         },
+         {
+             test: /\.sass$/,
+             loaders: ['style', 'css', 'sass']
+         }      
       ]
    }
 }
