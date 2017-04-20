@@ -35,7 +35,23 @@ This will add sass-loader css-loader style-loader versions in your package.json
                 test: /\.sass$/,
                 loaders: ['style', 'css', 'sass']
             }
-            
+
 3> For other user they only need to run
-=> npm install -d 
+=> npm install -d
 for installing all new dependencies
+
+
+
+Upgrade package.jason dependencies
+
+1>Installation
+$npm install -g npm-check-updates
+
+2>Usage
+Show any new dependencies for the project in the current directory:
+$ncu
+
+3>Upgrade
+$ ncu -u
+You can include or exclude specific packages using the --filter and --reject options. They accept strings, comma-delimited lists, or regular expressions:
+
