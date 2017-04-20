@@ -1,14 +1,22 @@
 import React from 'react';
 
 const CommentForm = React.createClass({
+
+  getInitialState () {
+    return ({
+      formKey: Math.random()
+    })
+  },
+
   _handleSubmit (event) {
     event.preventDefault();
     var author = this.refs.input.value;
     var comment = this.refs.textarea.value;
     if(author && comment) {
       this.props.setValues (author, comment);
-      this.refs.input.value = ''
-      this.refs.textarea.value = ''
+      this.setState({
+        formKey: Math.random()
+      })
     } else {
         alert('please enter values');
     }
@@ -16,7 +24,7 @@ const CommentForm = React.createClass({
 
   render () {
     return (
-      <form className="commentForm" onSubmit={this._handleSubmit}>
+      <form className="commentForm" onSubmit={this._handleSubmit} key={this.state.formKey}>
         <div className="form-group">
           <label htmlFor="usr">Name:</label>
           <input ref="input" type="text" className="form-control" id="usr" />

@@ -12,12 +12,12 @@ const CommentBox = React.createClass({
   },
 
   _getComments() {
-    return this.state.commentList.map((comment) => {
+    return this.state.commentList.map((comment, key) => {
       return (<Comment
                author={comment.author}
                body={comment.body}
-               id={comment.id}
-               key={comment.id}
+               id={key}
+               key={key}
                deleteComment={this._deleteComment}/>)
     });
   },
