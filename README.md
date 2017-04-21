@@ -55,3 +55,22 @@ $ncu
 $ ncu -u
 You can include or exclude specific packages using the --filter and --reject options. They accept strings, comma-delimited lists, or regular expressions:
 
+#Upgrade webpack version 2
+
+output path should be absolute
+  output: {
+    filename: 'index.js',
+    path: path.resolve(__dirname, 'dist')
+  },
+
+Loaders change
+Use babel-loader in place of babel
+Change syntex of style sass css and other loaders
+        {
+          test: /\.sass$/,
+          use: [
+              'style-loader', // creates style nodes from JS strings
+              'css-loader', // translates CSS into CommonJS
+              'sass-loader' // compiles Sass to CSS]
+            ]
+        }

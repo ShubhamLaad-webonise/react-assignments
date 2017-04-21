@@ -1,11 +1,12 @@
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var path = require('path');
 var config = {
    entry: './js/main.js',
 
-   output: {
-      path:'./',
-      filename: 'index.js',
-   },
+  output: {
+    filename: 'index.js',
+    path: path.resolve(__dirname, 'dist')
+  },
 
    devServer: {
       inline: true,
@@ -14,18 +15,21 @@ var config = {
     module: {
       loaders: [
          {
-            test: /\.jsx?$/,
-            exclude: /node_modules/,
-            loader: 'babel',
-
+            test: /\.jsx?$/, //Reguler expresion for detacting file
+            exclude: /node_modules/, //exclude folder
+            loader: 'babel-loader', //Use binary package for above file
             query: {
                presets: ['es2015', 'react']
             }
          },
-         {
-             test: /\.sass$/,
-             loaders: ['style', 'css', 'sass']
-         }
+        {
+          test: /\.sass$/,
+          use: [
+              'style-loader', // creates style nodes from JS strings
+              'css-loader', // translates CSS into CommonJS
+              'sass-loader' // compiles Sass to CSS]
+            ]
+        }
       ]
    }
 }
