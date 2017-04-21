@@ -1,11 +1,12 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var path = require('path');
+var webpack = require('webpack');
 var config = {
    entry: './js/main.js',
 
   output: {
-    filename: 'index.js',
+    filename: '[name]-[hash].js',
     path: path.resolve(__dirname, 'dist')
   },
    devServer: {
@@ -33,6 +34,9 @@ var config = {
     ]
   },
   plugins: [
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin(
       {template: './index.html'} //Which html file add js script
     )
