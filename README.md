@@ -38,11 +38,8 @@ This will add sass-loader css-loader style-loader versions in your package.json
 
 3> For other user they only need to run
 => npm install -d
-for installing all new dependencies
 
-
-
-Upgrade package.jason dependencies
+#Upgrade package.jason dependencies
 
 1>Installation
 $npm install -g npm-check-updates
@@ -57,20 +54,30 @@ You can include or exclude specific packages using the --filter and --reject opt
 
 #Upgrade webpack version 2
 
-output path should be absolute
+##output path should be absolute
   output: {
     filename: 'index.js',
     path: path.resolve(__dirname, 'dist')
   },
 
-Loaders change
-Use babel-loader in place of babel
-Change syntex of style sass css and other loaders
-        {
-          test: /\.sass$/,
-          use: [
-              'style-loader', // creates style nodes from JS strings
-              'css-loader', // translates CSS into CommonJS
-              'sass-loader' // compiles Sass to CSS]
-            ]
-        }
+##Loaders change
+  ###Use babel-loader in place of babel
+  ###Module.loaders is now module.rules
+      Change syntex of style sass css called "Chaining loaders" and other loaders
+          {
+            test: /\.sass$/,
+            use: [
+                'style-loader', // creates style nodes from JS strings
+                'css-loader', // translates CSS into CommonJS
+                'sass-loader' // compiles Sass to CSS]
+              ]
+          }
+  ###json-loader is not required anymore
+    When no loader has been configured for a JSON file, webpack will automatically try to load the JSON file with the json-loader.
+        rules: [
+           {
+             test: /\.json/, loader: "json-loader"  //Removed
+           }
+          ]
+    https://webpack.js.org/guides/migrating/
+
