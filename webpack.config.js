@@ -3,7 +3,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var path = require('path');
 var webpack = require('webpack');
 var config = {
-   entry: './js/main.js',
+   entry: './src/js/main.js',
 
   output: {
     filename: '[name]-[hash].js',
@@ -38,7 +38,7 @@ var config = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin(
-      {template: './index.html'} //Which html file add js script
+      {template: './src/index.html'} //Which html file add js script
     )
   ]
 }
