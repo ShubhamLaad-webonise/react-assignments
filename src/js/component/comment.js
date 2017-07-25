@@ -2,7 +2,7 @@ import React from 'react';
 
 const Comment = React.createClass({
 
-    propTypes: {
+  propTypes: {
       author: React.PropTypes.string,
       body: React.PropTypes.string
   },

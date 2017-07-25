@@ -8,18 +8,22 @@ const CommentForm = React.createClass({
     })
   },
 
-  _handleSubmit (event) {
+  _handleSubmit (event = {preventDefault(){}}) {
     event.preventDefault();
     var author = this.refs.input.value;
     var comment = this.refs.textarea.value;
     if(author && comment) {
       this.props.setValues (author, comment);
-      this.setState({
-        formKey: Math.random()
-      })
+      this._resetForm();
     } else {
         alert('please enter values');
     }
+  },
+
+  _resetForm () {
+      this.setState({
+        formKey: Math.random()
+      });
   },
 
   render () {
@@ -33,7 +37,8 @@ const CommentForm = React.createClass({
           <label htmlFor="comment">Comment:</label>
           <textarea ref="textarea" className="form-control" rows="5" id="comment"></textarea>
         </div>
-        <button type="submit" className="btn btn-default">Submit</button>
+        <button type="submit" className="btn btn-primary">Submit</button>
+        <button type="clear" className="btn">Clear</button>
       </form>
     )
   }
