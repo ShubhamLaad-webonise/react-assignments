@@ -1,12 +1,13 @@
 import React from 'react';
 
-const CommentForm = React.createClass({
+class CommentForm extends React.Component {
 
-  getInitialState () {
-    return ({
+  constructor(props) {
+    super(props);
+    this.state = {
       formKey: Math.random()
-    })
-  },
+    };
+  }
 
   _handleSubmit (event = {preventDefault(){}}) {
     event.preventDefault();
@@ -18,17 +19,17 @@ const CommentForm = React.createClass({
     } else {
         alert('please enter values');
     }
-  },
+  }
 
   _resetForm () {
       this.setState({
         formKey: Math.random()
       });
-  },
+  }
 
   render () {
     return (
-      <form className="commentForm" onSubmit={this._handleSubmit} key={this.state.formKey}>
+      <form className="commentForm" key={this.state.formKey}>
         <div className="form-group">
           <label htmlFor="usr">Name:</label>
           <input ref="input" type="text" className="form-control" id="usr" />
@@ -37,11 +38,11 @@ const CommentForm = React.createClass({
           <label htmlFor="comment">Comment:</label>
           <textarea ref="textarea" className="form-control" rows="5" id="comment"></textarea>
         </div>
-        <button type="submit" className="btn btn-primary">Submit</button>
-        <button type="clear" className="btn">Clear</button>
+        <button type="submit" className="btn btn-primary" onClick={ (e) => this._handleSubmit(e) }>Submit</button>
+        <button type="button" className="btn" onClick={() => this._resetForm()}>Clear</button>
       </form>
     )
   }
-});
+}
 
 export default CommentForm;
